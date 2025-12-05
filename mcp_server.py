@@ -8,9 +8,7 @@ import logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - MCP - %(message)s',
-    handlers=[
-        logging.FileHandler('mcp_server.log')  # Creates log file
-    ]
+    handlers=[logging.FileHandler('/app/logs/mcp_server.log')]
 )
 logger = logging.getLogger(__name__)
 
@@ -60,7 +58,6 @@ def get_file_content(file_path: str) -> str:
     except PermissionError:
         return f"Permission denied: {file_path}"
 
-if __name__ == "__main__":
-    # Run the MCP server via stdio 
-    logger.info("Starting MCP server via stdio transport") 
-    mcp.run(transport="stdio")
+if __name__ == "__main__": 
+    logger.info("Starting MCP server via SSE transport on port 8000")
+    mcp.run(transport="sse", port=8000, host="0.0.0.0")

@@ -1,0 +1,15 @@
+FROM python:3.11.9-slim
+
+WORKDIR /app
+
+# Install ADK and dependencies
+RUN pip install google-adk==1.17 litellm==1.78.7
+
+# Copy agent code
+COPY agentul_fcsb /app/agentul_fcsb
+COPY .env /app/.env
+
+# Expose ADK-Web port
+EXPOSE 8080
+
+CMD ["adk", "web", "--port", "8080", "--host", "0.0.0.0"]

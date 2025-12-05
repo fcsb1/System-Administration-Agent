@@ -1,0 +1,12 @@
+FROM ollama/ollama:latest
+
+# Copy a script that will pull the model
+COPY pull_model.sh /pull_model.sh
+RUN chmod +x /pull_model.sh
+
+# Start Ollama and pull the model
+RUN /pull_model.sh
+
+EXPOSE 11434
+
+CMD ["serve"]
