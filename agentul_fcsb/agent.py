@@ -1,30 +1,22 @@
 # multi_tool_agent/agent.py
-import os
 from google.adk.agents import LlmAgent
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset
 from google.adk.tools.mcp_tool.mcp_session_manager import SseConnectionParams
 from google.adk.models.lite_llm import LiteLlm
 import logging
+import os
 logging.basicConfig(level=logging.DEBUG)
 
-# path MCP server script
-#MCP_SCRIPT = os.path.join(os.path.dirname(__file__), "..", "mcp_server.py")
-
 # Connect to MCP server via HTTP
+
+api_key = os.environ.get("MCP_API_KEY")
+
 sse_params = SseConnectionParams(
-    url="http://mcp-server:8000/sse"
+    url="http://mcp-server:8000/sse",
+    headers={"X-API-Key": api_key}
 )
 
 mcp_toolset = MCPToolset(connection_params=sse_params)
-
-# DEBUG: Try to list available tools
-# try:
-#     print("Attempting to connect to MCP server...")
-#     # This should trigger the connection
-#     available_tools = mcp_toolset.get_tools() if hasattr(mcp_toolset, 'get_tools') else []
-#     print(f"Available tools: {available_tools}")
-# except Exception as e:
-#     print(f"ERROR connecting to MCP server: {e}")
 
 
 root_agent = LlmAgent(
@@ -36,6 +28,7 @@ root_agent = LlmAgent(
     ),
 instruction=(
         "You are a system administrator assistant.\n\n"
+        "The files you manage are located in the directory: /managed_folder\n"
         "Respond naturally to all user messages.\n"
         "- For greetings, casual conversation, or general questions, respond directly without using tools.\n"
         "- ONLY use the available filesystem tools when the user specifically asks about files, "
@@ -44,13 +37,5 @@ instruction=(
     description="Agent that uses MCP filesystem tools (list_directory, get_file_content) when needed.",
     tools=[mcp_toolset],
 )
-
-# ADD THIS DEBUG CODE:
-print("=" * 50)
-print("REGISTERED TOOLS:")
-if hasattr(root_agent, 'tools'):
-    for tool in root_agent.tools:
-        print(f"  - {tool}")
-print("=" * 50)
 
 ROOT_AGENT = root_agent

@@ -156,3 +156,33 @@
 2025-12-05 16:52:32,316 - MCP - Processing request of type ListToolsRequest
 2025-12-05 16:52:35,218 - MCP - Processing request of type ListToolsRequest
 2025-12-05 16:56:21,371 - MCP - Processing request of type ListToolsRequest
+2025-12-05 18:10:43,815 - MCP - MCP server started. si fcsb e top
+2025-12-05 18:10:43,821 - MCP - Starting MCP server via SSE transport on port 8000
+2025-12-05 18:12:27,111 - MCP - Processing request of type ListToolsRequest
+2025-12-05 18:16:53,979 - MCP - Processing request of type ListToolsRequest
+2025-12-05 18:16:54,105 - MCP - Processing request of type CallToolRequest
+2025-12-05 18:16:54,173 - MCP - get file content a fost apelat
+2025-12-05 18:16:54,267 - MCP - Processing request of type ListToolsRequest
+2025-12-05 18:18:43,365 - MCP - Processing request of type ListToolsRequest
+2025-12-05 18:21:38,554 - MCP - Processing request of type ListToolsRequest
+2025-12-05 18:23:28,839 - MCP - Processing request of type ListToolsRequest
+2025-12-05 18:23:28,858 - MCP - Processing request of type CallToolRequest
+2025-12-05 18:23:28,889 - MCP - list_directory was called
+2025-12-05 18:23:28,943 - MCP - Processing request of type ListToolsRequest
+2025-12-05 18:25:13,130 - MCP - Processing request of type ListToolsRequest
+2025-12-05 20:14:04,152 - MCP - MCP server started. and fcsb is top
+2025-12-05 20:14:04,159 - MCP - Starting MCP server via SSE transport on port 8000
+2025-12-05 20:16:28,216 - MCP - Processing request of type ListToolsRequest
+2025-12-05 20:21:51,232 - MCP - Processing request of type ListToolsRequest
+2025-12-05 20:21:51,410 - MCP - Processing request of type CallToolRequest
+2025-12-05 20:21:51,957 - MCP - Processing request of type ListToolsRequest
+2025-12-05 20:23:28,940 - MCP - Processing request of type ListToolsRequest
+2025-12-05 20:33:06,781 - MCP - MCP server started. and fcsb is top
+2025-12-05 20:33:06,790 - MCP - Starting MCP server via SSE transport on port 8000
+2025-12-05 20:33:48,360 - MCP - Processing request of type ListToolsRequest
+2025-12-05 20:40:09,270 - MCP - Processing request of type ListToolsRequest
+2025-12-05 20:40:09,457 - MCP - Processing request of type CallToolRequest
+2025-12-05 20:40:09,583 - MCP - Auth Check: Token primit='cheia_mea_secreta_super_sigura' vs Așteptat='cheia_mea_secreta_super_sigura'
+2025-12-05 20:40:09,584 - MCP - list_directory was called
+2025-12-05 20:40:09,712 - MCP - Processing request of type ListToolsRequest
+2025-12-05 20:41:39,854 - MCP - Processing request of type ListToolsRequest
